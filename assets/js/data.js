@@ -28,7 +28,7 @@ const UI = {
     tr: "Sabancı Üniversitesi'nde Bilgisayar Bilimi öğrencisiyim. LLM sistemleri, bilgi erişimi (retrieval) ve full-stack geliştirmenin kesiştiği noktada çalışıyorum. Şu anda Hepsiburada'da Veri Bilimi Stajyeri olarak daha güvenilir sohbet tabanlı yapay zekâ ve daha adil arama sıralamaları üzerine çalışıyorum.",
   },
   "hero.cta.projects": { en: "View projects", tr: "Projeleri gör" },
-  "hero.cta.cv": { en: "Download CV", tr: "CV'yi indir" },
+  "hero.cta.cv": { en: "View CV", tr: "CV'yi görüntüle" },
   "hero.cta.contact": { en: "Get in touch", tr: "İletişime geç" },
   "hero.roles": {
     en: ["Data Science Intern @ Hepsiburada", "CS @ Sabancı University", "LLM agents · RAG · Ranking", "Full-stack developer"],

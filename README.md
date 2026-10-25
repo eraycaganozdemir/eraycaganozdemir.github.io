@@ -8,7 +8,7 @@ assets/js/data.js        ALL content (experience, projects, skills…) in { en, 
 assets/js/main.js        rendering, language toggle, project filters/expand
 assets/css/style.css     dark terminal theme
 assets/img/eray.jpg      profile photo
-assets/ErayCaganOzdemir_CV.pdf   file behind the "Download CV" button
+assets/ErayCaganOzdemir_CV.pdf   opened in a new tab by the "View CV" button
 ```
 
 ## Editing content
