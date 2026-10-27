@@ -19,6 +19,7 @@ Everything you'd want to change is in `assets/js/data.js`.
 - **Repo / demo links:** fill a project's `links`, e.g.
   `links: [{ label: "GitHub", url: "https://github.com/..." }, { label: { en: "Live demo", tr: "Canlı demo" }, url: "https://..." }]`
 - **Share one project:** every project has a direct link, e.g. `https://<your-site>/#p-suschedule-r`.
+- **After changing CSS/JS:** bump the `?v=...` number on the three asset links in `index.html` (e.g. to today's date). Browsers cache these files for 10 minutes; a new number makes visitors load the new version right away.
 - **New CV:** replace `assets/ErayCaganOzdemir_CV.pdf` (keep the file name or update `PROFILE.cv`).
 
 ## Run locally
