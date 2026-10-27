@@ -197,6 +197,61 @@ const EXPERIENCE = [
 
 const PROJECTS = [
   {
+    id: "ens492-epistemic-agent",
+    title: { en: "Know First, Then Act: an LLM Agent with an Epistemic Critic", tr: "Önce Bil, Sonra Yap: Epistemik Eleştirmenli LLM Ajanı" },
+    subtitle: { en: "ENS491–492 graduation project · subgoal generation & active information acquisition", tr: "ENS491–492 bitirme projesi · alt hedef üretimi ve aktif bilgi edinimi" },
+    date: { en: "Feb 2026 – Present", tr: "Şub 2026 – Devam ediyor" },
+    cats: ["ai"],
+    context: { en: "Graduation project · 4-person team", tr: "Bitirme projesi · 4 kişilik ekip" },
+    featured: true,
+    summary: {
+      en: "An embodied LLM agent in the AI2-THOR simulator that splits household tasks into subgoals and asks “do I know enough?” before every step — searching for missing objects instead of failing first.",
+      tr: "AI2-THOR simülatöründe ev görevlerini alt hedeflere bölen ve her adımdan önce “yeterince biliyor muyum?” diye soran bir LLM ajanı — önce başarısız olmak yerine eksik nesneleri arıyor.",
+    },
+    overview: {
+      en: "Ask an agent to slice an apple and it has to realise, unprompted, that it needs a knife, that it hasn't seen one, and that knives usually live in drawers. Typical LLM agents act first and discover missing information only when an action fails. Our agent adds an Epistemic Critic that checks, before acting, whether the knowledge a step needs is actually in memory — and if not, picks an information-gathering action (look around, search the likeliest container, explore) guided by a commonsense belief about where objects are kept. The language model decides what to do; deterministic code decides how. Supervised by Zeki Doruk Erden at Sabancı University.",
+      tr: "Bir ajandan elma dilimlemesini istediğinizde, kimse söylemeden bir bıçağa ihtiyacı olduğunu, henüz bıçak görmediğini ve bıçakların genelde çekmecelerde durduğunu fark etmesi gerekir. Tipik LLM ajanları önce hareket eder ve eksik bilgiyi ancak bir eylem başarısız olunca fark eder. Bizim ajanımız, harekete geçmeden önce adımın gerektirdiği bilginin gerçekten hafızada olup olmadığını kontrol eden bir Epistemik Eleştirmen (Epistemic Critic) ekliyor; bilgi yoksa, nesnelerin nerede tutulduğuna dair sağduyu tabanlı bir inançla yönlendirilen bir bilgi toplama eylemi seçiyor (etrafa bakmak, en olası dolabı aramak, keşfetmek). Ne yapılacağına dil modeli, nasıl yapılacağına deterministik kod karar veriyor. Sabancı Üniversitesi'nde Zeki Doruk Erden danışmanlığında.",
+    },
+    did: [
+      {
+        en: "Built (as a team) a modular agent loop — plan → assess → act → verify → recover — where only the planner, the critic and the location belief call the LLM; navigation, manipulation and verification are deterministic.",
+        tr: "Ekip olarak modüler bir ajan döngüsü kurduk — planla → değerlendir → uygula → doğrula → toparla — burada LLM'i yalnızca planlayıcı, eleştirmen ve konum inancı çağırıyor; navigasyon, nesne etkileşimi ve doğrulama deterministik.",
+      },
+      {
+        en: "Made missing information measurable: a scenario builder hides the objects a task needs at three levels (visible, out of view, inside closed containers) across 10 household tasks, and every critic decision is graded against the simulator's ground truth.",
+        tr: "Eksik bilgiyi ölçülebilir hale getirdik: bir senaryo üreticisi, 10 ev görevinde gereken nesneleri üç seviyede (görünür, görüş dışında, kapalı dolapların içinde) saklıyor ve eleştirmenin her kararı simülatörün gerçek verisine göre puanlanıyor.",
+      },
+      {
+        en: "Ran the first real-model pilot with GPT-4o-mini against a single-LLM ReAct baseline and a no-critic ablation, then read the traces before trusting the numbers.",
+        tr: "GPT-4o-mini ile ilk gerçek model pilotunu, tek LLM'li ReAct baseline'ına ve eleştirmensiz bir ablation'a karşı çalıştırdım; sayılara güvenmeden önce trace'leri okudum.",
+      },
+      {
+        en: "Found that the early 56-point success gap came from harness bugs, not reasoning: fixed ReAct's skill parsing and retry feedback, and stopped the no-critic agent looping on a step only the critic can complete — making the comparison fair.",
+        tr: "İlk baştaki 56 puanlık başarı farkının akıl yürütmeden değil, test düzeneğindeki hatalardan geldiğini buldum: ReAct'in skill ayrıştırmasını ve tekrar deneme geri bildirimini düzelttim, eleştirmensiz ajanın yalnızca eleştirmenin tamamlayabileceği bir adımda döngüye girmesini engelledim — karşılaştırmayı adil hale getirdim.",
+      },
+      {
+        en: "Fixed the belief update so searched containers are eliminated and the remaining probability is renormalised, added budget-aware replanning, and covered the changes with new unit tests.",
+        tr: "İnanç güncellemesini düzelttim: aranan dolaplar eleniyor ve kalan olasılık yeniden normalize ediliyor; bütçe farkındalıklı yeniden planlama ekledim ve değişiklikleri yeni birim testleriyle kapsadım.",
+      },
+      {
+        en: "Presented the project's background, motivation, objectives and testbed at the ENS492 progress presentation.",
+        tr: "ENS492 ara sunumunda projenin arka planını, motivasyonunu, hedeflerini ve test ortamını sundum.",
+      },
+    ],
+    metrics: [
+      { value: "18/18", label: { en: "pilot episodes solved", tr: "başarılı pilot bölüm" } },
+      { value: "98%", label: { en: "real knowledge gaps caught", tr: "yakalanan gerçek bilgi eksikliği" } },
+      { value: "0", label: { en: "false alarms in 145 critic decisions", tr: "145 eleştirmen kararında yanlış alarm" } },
+      { value: "~½", label: { en: "the skill calls of the baselines", tr: "baseline'lara göre skill çağrısı" } },
+    ],
+    results: {
+      en: "On the pilot (3 tasks × 3 hiding levels × 2 scenes, paired), success is close to the baselines once their bugs are fixed — but our agent needs about half the skill calls and almost never acts before it has the information it needs (0.06 premature actions per episode vs 0.39–1.33). Next: a 540-episode main study, harder scenarios and camera-based vision.",
+      tr: "Pilotta (3 görev × 3 saklama seviyesi × 2 sahne, eşleştirilmiş) baseline'ların hataları düzeltildikten sonra başarı oranları birbirine yakın — ancak ajanımız yaklaşık yarı sayıda skill çağrısına ihtiyaç duyuyor ve gereken bilgiye sahip olmadan neredeyse hiç harekete geçmiyor (bölüm başına 0,06 erken eylem, baseline'larda 0,39–1,33). Sırada: 540 bölümlük ana çalışma, daha zor senaryolar ve kamera tabanlı görü.",
+    },
+    stack: ["Python", "AI2-THOR", "GPT-4o-mini", "LLM agents", "ReAct baseline", "pytest"],
+    links: [],
+  },
+  {
     id: "suschedule-r",
     title: "SuSchedule-r",
     subtitle: { en: "LLM-based course-planning agent", tr: "LLM tabanlı ders planlama ajanı" },
