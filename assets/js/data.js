@@ -11,7 +11,7 @@ const PROFILE = {
   location: { en: "Istanbul, Turkey", tr: "İstanbul, Türkiye" },
   linkedin: "https://www.linkedin.com/in/eraycaganozdemir/",
   github: "https://github.com/eraycaganozdemir",
-  cv: "assets/ErayCaganOzdemir_CV.pdf",
+  cv: "assets/ErayCaganOzdemir_CV.pdf?v=20261029",
 };
 
 const UI = {
@@ -692,7 +692,7 @@ const EDUCATION = {
   degree: { en: "B.S. in Computer Science, Faculty of Engineering", tr: "Bilgisayar Bilimi Lisans, Mühendislik ve Doğa Bilimleri Fakültesi" },
   date: { en: "Expected Jan 2027", tr: "Beklenen mezuniyet: Oca 2027" },
   facts: [
-    { k: { en: "GPA", tr: "GNO" }, v: "3.84 / 4.00" },
+    { k: { en: "GPA", tr: "GNO" }, v: "3.85 / 4.00" },
     { k: { en: "Minors", tr: "Yandallar" }, v: { en: "Business Analytics · Mind & Behavior", tr: "İş Analitiği · Zihin ve Davranış" } },
     { k: { en: "Honors", tr: "Onurlar" }, v: { en: "High Honor Certificate, seven terms (GPA > 3.5)", tr: "Yedi dönem Yüksek Onur Belgesi (GNO > 3.5)" } },
     { k: { en: "Scholarship", tr: "Burs" }, v: { en: "100% Outstanding Achievement Scholarship", tr: "%100 Üstün Başarı Bursu" } },
